@@ -3,41 +3,269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZA Portfolio | AI‑Enabled Templates & Workflows</title>
-  <!-- Google Fonts for clean typography -->
+  <title>ZA Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --primary: #003F5C;
+      --secondary: #2F4B7C;
+      --accent: #FFA600;
+      --bg: #F7F9FC;
+      --text: #333333;
+      --border: #E0E0E0;
+      --safe: #F5F5F5;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--primary);
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 10;
+    }
+    header .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    nav a {
+      color: #ffffff;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover,
+    nav a:focus {
+      text-decoration: underline;
+    }
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: var(--bg);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-block;
+      margin: 0.25rem 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-secondary {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+    .btn-primary {
+      background-color: var(--secondary);
+      color: #ffffff;
+    }
+    .btn:focus {
+      outline: 2px dashed var(--accent);
+      outline-offset: 2px;
+    }
+    .value-tiles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .tile {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      flex: 1 1 220px;
+      max-width: 300px;
+      padding: 1.5rem;
+    }
+    .tile h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+    .section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    .artifact-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 1rem;
+    }
+    .artifact-card .tags {
+      margin-bottom: 0.5rem;
+    }
+    .tag {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: #ffffff;
+      border-radius: 3px;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .details {
+      margin-top: 1rem;
+    }
+    .hidden {
+      display: none;
+    }
+    .safe-box {
+      border-left: 4px solid var(--accent);
+      background: var(--safe);
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    .details h3,
+    .details h4 {
+      margin-top: 1rem;
+      color: var(--secondary);
+    }
+    .details ul {
+      list-style-type: disc;
+      margin-left: 1.25rem;
+    }
+    .details ol {
+      margin-left: 1.25rem;
+    }
+    #about ul,
+    #artifacts ul {
+      list-style-type: disc;
+      margin-left: 1.25rem;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-form label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 1rem;
+      margin-top: 0.25rem;
+    }
+    .contact-form button {
+      margin-top: 1rem;
+      background-color: var(--secondary);
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      background-color: var(--primary);
+    }
+    footer {
+      background-color: var(--primary);
+      color: #ffffff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.875rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      margin: 0.5rem 0;
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header nav {
+        margin-top: 0.5rem;
+      }
+      .value-tiles {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .back-top {
+      display: block;
+      margin-top: 2rem;
+      text-align: right;
+    }
+  </style>
 </head>
-<body>
+<body id="top">
   <header>
     <div class="logo">ZA Portfolio</div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="artifacts.html">Artifacts</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#artifacts">Artifacts</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
+
   <main>
-    <section class="hero">
-      <h1>AI‑powered workflow improvement (portfolio)</h1>
+    <!-- Hero / Home Section -->
+    <section id="home" class="hero">
+      <h1>ZA Portfolio</h1>
       <p>I help teams improve everyday workflows with safe, practical AI and reusable templates.</p>
-      <a href="artifacts.html" class="btn">View Artifacts</a>
-      <a href="contact.html" class="btn btn-primary">Contact</a>
+      <a href="#artifacts" class="btn btn-secondary">View Artifacts</a>
+      <a href="#contact" class="btn btn-primary">Contact</a>
     </section>
 
+    <!-- Value Tiles Section -->
     <section class="value-tiles">
       <div class="tile">
         <h3>Templates &amp; Workflows</h3>
         <p>Reusable templates to plan projects, assign tasks, and manage work consistently.</p>
       </div>
       <div class="tile">
-        <h3>Documentation Excellence</h3>
-        <p>Guides and SOPs to help you organize data, version your work, and create living documentation.</p>
+        <h3>Training &amp; Enablement</h3>
+        <p>Structured outlines to bring your team up to speed on AI-assisted tools and processes.</p>
       </div>
       <div class="tile">
-        <h3>Training &amp; Enablement</h3>
-        <p>Structured training outlines to bring your team up to speed on AI‑assisted tools and processes.</p>
+        <h3>Documentation Excellence</h3>
+        <p>Guides and SOPs to help you organize data, version your work, and create living documentation.</p>
       </div>
       <div class="tile">
         <h3>Safe AI Use</h3>
@@ -45,47 +273,790 @@
       </div>
     </section>
 
-    <section class="container">
-      <h2>Featured Artifacts</h2>
+    <!-- Artifacts Section -->
+    <section id="artifacts" class="section">
+      <h2>Artifacts</h2>
+
+      <!-- Planner Workflow Template -->
       <div class="artifact-card">
         <div class="tags">
           <span class="tag">Template</span>
           <span class="tag">Workflow</span>
         </div>
         <h3>Planner Workflow Template</h3>
-        <p>A ready‑to‑use Planner board structure with naming conventions, status tags, weekly review cadence, and a handoff checklist.</p>
-        <a class="btn" href="artifact-planner.html">View Details</a>
+        <p>A blueprint for planning and task management using a Kanban-style board with buckets, naming conventions, status tags, and a weekly review cadence.</p>
+        <button class="btn btn-secondary" data-target="planner-details" aria-expanded="false" onclick="toggleDetails(this.dataset.target)">Show details</button>
+        <div class="details hidden" id="planner-details">
+          <h4>What it is</h4>
+          <p>This template provides a structured board for managing projects in Microsoft Planner or any Kanban-style tool. It includes a consistent layout for tasks, naming conventions, status tags, weekly review cadence and guidelines for handoffs.</p>
+          <h4>Who it’s for</h4>
+          <p>Project managers, team leads, research coordinators and anyone who wants to manage tasks consistently across projects.</p>
+          <h4>Problems it solves</h4>
+          <ul>
+            <li>Inconsistent task tracking across teams.</li>
+            <li>Unclear roles and ownership.</li>
+            <li>Missed hand‑offs and incomplete deliverables.</li>
+            <li>Tasks falling through the cracks due to lack of review cadence.</li>
+          </ul>
+          <h4>What’s included</h4>
+          <ul>
+            <li><strong>Board buckets:</strong> Intake/Backlog, Ready, In Progress, Blocked, Needs Review, Done, Archived (optional).</li>
+            <li><strong>Task naming convention:</strong> <code>[Workstream] — Verb + Object (Deliverable) | YYYY‑MM‑DD</code>.</li>
+            <li><strong>Status tags:</strong> Not Started, Active, Blocked, Needs Review, Completed.</li>
+            <li><strong>Weekly review cadence:</strong> Agenda and suggested timing for a 15–25 minute recurring meeting.</li>
+            <li><strong>Example projects:</strong> Sample boards for a reproducible pipeline and a training rollout.</li>
+            <li><strong>Handoff checklist:</strong> Checklist items to verify before a task is marked done.</li>
+            <li><strong>RACI‑lite roles:</strong> Lightweight matrix to clarify who is Responsible, Accountable, Consulted and Informed.</li>
+          </ul>
+          <h4>How to use</h4>
+          <ol>
+            <li>Make a copy of the template board in your project management tool.</li>
+            <li>Confirm or adjust buckets to fit your workflow.</li>
+            <li>Create tasks using the naming convention (e.g. <code>Data SOP — Draft folder structure v1 | 2025‑01‑12</code>).</li>
+            <li>Assign tasks and tags and specify R/A/C/I roles.</li>
+            <li>Schedule a weekly review to update statuses and remove blockers.</li>
+            <li>Use the handoff checklist before moving tasks to “Done.”</li>
+          </ol>
+          <div class="safe-box">
+            <strong>Safety &amp; Responsible Use:</strong> Do not include PHI/PII, secrets, unpublished results or internal identifiers in task names or descriptions. Use generic descriptors and store sensitive details securely elsewhere.
+          </div>
+          <h4>Preview (sanitized excerpt)</h4>
+          <p><strong>Board buckets:</strong></p>
+          <ul>
+            <li><strong>Intake/Backlog:</strong> Ideas and tasks awaiting prioritization.</li>
+            <li><strong>Ready:</strong> Agreed priorities ready for work.</li>
+            <li><strong>In Progress:</strong> Tasks being actively worked on.</li>
+            <li><strong>Blocked:</strong> Tasks with blockers that need resolving.</li>
+            <li><strong>Needs Review:</strong> Work complete; awaiting review/approval.</li>
+            <li><strong>Done:</strong> Completed tasks after handoff checklist.</li>
+          </ul>
+          <p><strong>RACI‑lite example:</strong> Data Collection — Responsible: Research Assistant; Accountable: Project Lead; Consulted: Data Manager; Informed: Stakeholders.</p>
+          <p>
+            <button class="btn btn-primary" onclick="downloadFile('planner-workflow-template.md')">Download Template (MD)</button>
+            <button class="btn btn-primary" onclick="downloadFile('planner-task-pack.csv')">Download Task Pack (CSV)</button>
+            <button class="btn btn-primary" onclick="downloadFile('planner-example-reproducible-pipeline.md')">Download Example Pipeline (MD)</button>
+            <button class="btn btn-primary" onclick="downloadFile('planner-example-training-rollout.md')">Download Example Training (MD)</button>
+          </p>
+        </div>
       </div>
+
+      <!-- Copilot Prompt Library -->
       <div class="artifact-card">
         <div class="tags">
           <span class="tag">Prompt Library</span>
           <span class="tag">AI</span>
         </div>
         <h3>Copilot Prompt Library</h3>
-        <p>15+ curated prompts for summarizing docs, drafting SOPs, rewriting emails, and more — complete with safety guardrails.</p>
-        <a class="btn" href="artifact-copilot.html">View Details</a>
+        <p>A collection of 15+ prompts grouped by use case with guardrails, red‑flag checklists and sanitize‑first steps.</p>
+        <button class="btn btn-secondary" data-target="copilot-details" aria-expanded="false" onclick="toggleDetails(this.dataset.target)">Show details</button>
+        <div class="details hidden" id="copilot-details">
+          <h4>What it is</h4>
+          <p>This library provides reusable prompts for AI assistants like Microsoft 365 Copilot. Prompts are grouped by common scenarios (document summarization, meeting notes, drafting SOPs, email rewrites, risk/issue logging, study trackers and training content) and include guardrails to prevent disclosure of sensitive information.</p>
+          <h4>Who it’s for</h4>
+          <p>Anyone using AI tools to accelerate writing, summarizing or tracking tasks—researchers, project managers, educators, admin staff and more.</p>
+          <h4>Problems it solves</h4>
+          <ul>
+            <li>Starting from a blank page when summarizing or drafting.</li>
+            <li>Lack of consistency and clarity in prompts across teams.</li>
+            <li>Uncertainty about what information can be safely shared with AI.</li>
+          </ul>
+          <h4>What’s included</h4>
+          <ul>
+            <li>Prompts grouped by use case: summarizing docs, meeting notes, drafting SOPs, email rewrites, risk/issue logs, study trackers and training content.</li>
+            <li>Guardrails and a “do not paste” list for each group (PHI/PII, secrets, unpublished results, internal IDs).</li>
+            <li>Red‑flag checklist to identify sensitive data.</li>
+            <li>Sanitize‑first steps to prepare your material before using AI.</li>
+          </ul>
+          <h4>How to use</h4>
+          <ol>
+            <li>Identify your use case and select a prompt from the relevant category.</li>
+            <li>Review the guardrails and make sure you’re not including restricted information.</li>
+            <li>Sanitize your source material by redacting or anonymizing sensitive details.</li>
+            <li>Paste the prompt and relevant context into your AI assistant and evaluate the output critically.</li>
+            <li>Iterate and refine the prompt for future use.</li>
+          </ol>
+          <div class="safe-box">
+            <strong>Safety &amp; Responsible Use:</strong>
+            <ul>
+              <li>Never include personal health information, personally identifiable information, secrets or unpublished results in AI prompts.</li>
+              <li>Remove internal identifiers and codes; replace with generic placeholders.</li>
+              <li>If you’re unsure whether information is sensitive, consult governance policies or supervisors before sharing with AI.</li>
+            </ul>
+          </div>
+          <h4>Prompt Categories (preview)</h4>
+          <h5>Summarizing Documents</h5>
+          <ul>
+            <li>“Summarize the key findings of this research paper in three bullet points.”</li>
+            <li>“Provide a concise abstract of the following report, highlighting the goals, methods, results and conclusions.”</li>
+            <li>“List the strengths and weaknesses identified in this study.”</li>
+          </ul>
+          <h5>Meeting Notes</h5>
+          <ul>
+            <li>“Summarize the key decisions and action items from this meeting transcript.”</li>
+            <li>“Identify open questions and follow‑up tasks from these meeting notes.”</li>
+          </ul>
+          <h5>Drafting SOPs</h5>
+          <ul>
+            <li>“Create a draft Standard Operating Procedure for data backup based on these guidelines.”</li>
+            <li>“Outline a set of steps to ensure reproducible analysis in a research workflow.”</li>
+          </ul>
+          <h5>Email Rewrites</h5>
+          <ul>
+            <li>“Rewrite this email to be more concise and professional.”</li>
+            <li>“Draft a polite reminder email to a colleague about an upcoming deadline.”</li>
+          </ul>
+          <h5>Risk/Issue Logs</h5>
+          <ul>
+            <li>“List potential risks and mitigation strategies for this project.”</li>
+            <li>“Create an issue log entry summarizing a data quality problem and proposing a resolution.”</li>
+          </ul>
+          <h5>Study Trackers</h5>
+          <ul>
+            <li>“Generate a progress update template for a longitudinal study.”</li>
+            <li>“Draft a study tracker that records milestones, dates and responsible parties.”</li>
+          </ul>
+          <h5>Training Content</h5>
+          <ul>
+            <li>“Outline a beginner‑level training session on using AI in documentation workflows.”</li>
+            <li>“Create an agenda for an intermediate workshop on AI‑assisted data analysis.”</li>
+          </ul>
+          <p>
+            <button class="btn btn-primary" onclick="downloadFile('copilot-prompt-library.md')">Download Prompt Library (MD)</button>
+          </p>
+        </div>
       </div>
+
+      <!-- SOP for Data Organization -->
       <div class="artifact-card">
         <div class="tags">
           <span class="tag">SOP</span>
           <span class="tag">Data</span>
         </div>
-        <h3>SOP for Data Organization</h3>
-        <p>A structured guide for organizing project data and reproducible pipelines: folder structures, naming rules, versioning, README templates, and QC checklists.</p>
-        <a class="btn" href="artifact-sop.html">View Details</a>
+        <h3>SOP for Data Organization &amp; Reproducible Pipelines</h3>
+        <p>A structured guide to organize project data and build reproducible analysis pipelines: folder structures, naming rules, versioning, README templates and QC checklists.</p>
+        <button class="btn btn-secondary" data-target="sop-details" aria-expanded="false" onclick="toggleDetails(this.dataset.target)">Show details</button>
+        <div class="details hidden" id="sop-details">
+          <h4>What it is</h4>
+          <p>This Standard Operating Procedure (SOP) lays out how to structure your project folders, name files, version your work, document metadata and maintain reproducibility. It includes templates for READMEs, data dictionaries, change logs and QC checklists.</p>
+          <h4>Who it’s for</h4>
+          <p>Data managers, researchers, analysts and anyone responsible for maintaining datasets and analysis pipelines.</p>
+          <h4>Problems it solves</h4>
+          <ul>
+            <li>Disorganized folders and inconsistent naming conventions.</li>
+            <li>Inability to reproduce results due to missing documentation.</li>
+            <li>Version confusion when multiple copies of scripts and data exist.</li>
+          </ul>
+          <h4>What’s included</h4>
+          <ul>
+            <li><strong>Recommended folder structure:</strong> A hierarchy separating raw and processed data, scripts, notebooks, reports, figures and metadata.</li>
+            <li><strong>Naming rules:</strong> Guidelines for lower‑case filenames, hyphen separators and date prefixes.</li>
+            <li><strong>Versioning:</strong> Advice on semantic or date‑based versioning and maintaining a change log.</li>
+            <li><strong>README template:</strong> Outline to document project objectives, data sources, dependencies and instructions.</li>
+            <li><strong>Data dictionary template:</strong> A table for defining field names, descriptions, types and notes.</li>
+            <li><strong>Change log:</strong> Template to record modifications to data, scripts and documentation.</li>
+            <li><strong>QC checklist:</strong> Steps to verify naming conventions, folder integrity, anonymization and reproducibility.</li>
+            <li><strong>Minimal reproducibility requirements:</strong> Guidance on documenting environments, seeds and dependencies.</li>
+            <li><strong>Example tree:</strong> A sample directory tree illustrating where files belong.</li>
+          </ul>
+          <h4>How to use</h4>
+          <ol>
+            <li>Create a new project directory using the recommended folder structure.</li>
+            <li>Name your files according to the naming rules and separate raw from processed data.</li>
+            <li>Document your project in the provided README and fill out the data dictionary.</li>
+            <li>Record changes in the change log whenever you modify scripts or datasets.</li>
+            <li>Use the QC checklist regularly to ensure your project remains organized and reproducible.</li>
+          </ol>
+          <div class="safe-box">
+            <strong>Safety &amp; Responsible Use:</strong> Remove or anonymize personally identifiable information before storing data in shared locations. Adhere to institutional data policies and never commit confidential data to public repositories.
+          </div>
+          <h4>Preview (sanitized excerpt)</h4>
+          <pre style="background-color: var(--safe); padding: 1rem; border: 1px solid var(--border); overflow-x: auto;">
+project-root/
+    data/
+        raw/
+        processed/
+    scripts/
+    notebooks/
+    reports/
+    figures/
+    metadata/
+        data_dictionary.csv
+        readme.md
+          </pre>
+          <p>
+            <button class="btn btn-primary" onclick="downloadFile('sop-data-organization.md')">Download SOP (MD)</button>
+          </p>
+        </div>
       </div>
+
+      <!-- Sample Training Outlines -->
       <div class="artifact-card">
         <div class="tags">
           <span class="tag">Training</span>
         </div>
         <h3>Sample Training Outlines</h3>
-        <p>Beginner and intermediate training outlines covering AI‑assisted workflows, learning objectives, exercises, and take‑home resources.</p>
-        <a class="btn" href="artifact-training.html">View Details</a>
+        <p>Beginner and intermediate training outlines covering AI‑assisted workflows, learning objectives, agendas, exercises and take‑home resources.</p>
+        <button class="btn btn-secondary" data-target="training-details" aria-expanded="false" onclick="toggleDetails(this.dataset.target)">Show details</button>
+        <div class="details hidden" id="training-details">
+          <h4>What it is</h4>
+          <p>Two generic training outlines—one for beginners and one for an intermediate audience. Each includes learning objectives, a timed agenda, hands‑on exercises, assessments and resources to take home.</p>
+          <h4>Who it’s for</h4>
+          <p>Trainers, educators, team leads or anyone responsible for onboarding colleagues to AI-assisted tools and reproducible practices.</p>
+          <h4>Problems it solves</h4>
+          <ul>
+            <li>Lack of structured training materials for AI‑assisted workflows.</li>
+            <li>Difficulty balancing theory with hands‑on practice.</li>
+            <li>The need for consistent curricula without exposing internal systems.</li>
+          </ul>
+          <h4>What’s included</h4>
+          <ul>
+            <li><strong>Beginner outline:</strong> Introduction to AI in workflows, templates and SOPs overview, hands‑on exercises and a concise assessment.</li>
+            <li><strong>Intermediate outline:</strong> Deeper dive into data organization and versioning, advanced prompt engineering, SOP drafting and peer feedback.</li>
+            <li>Learning objectives, agendas with timings, exercises, assessments and take‑home resources for each outline.</li>
+            <li>All content is generic—no employer systems, internal screenshots or proprietary examples.</li>
+          </ul>
+          <h4>How to use</h4>
+          <ol>
+            <li>Choose the outline that matches your audience’s experience level.</li>
+            <li>Customize the learning objectives and examples to align with your context while excluding confidential information.</li>
+            <li>Deliver the training using the provided agenda and exercises, adjusting the pacing as needed.</li>
+            <li>Use assessments to gauge understanding and refine future sessions.</li>
+            <li>Share the take‑home resources so participants can continue learning independently.</li>
+          </ol>
+          <div class="safe-box">
+            <strong>Safety &amp; Responsible Use:</strong> The outlines are intentionally generic. When customizing, avoid including screenshots, data or system names that are proprietary. Emphasize ethical AI use and the importance of not exposing sensitive information during demonstrations.
+          </div>
+          <h4>Preview (sanitized excerpts)</h4>
+          <h5>Beginner Outline</h5>
+          <p><strong>Learning objectives:</strong> Understand the basics of AI-assisted workflows; learn how to use templates and prompts responsibly; practice creating reproducible documentation.</p>
+          <p><strong>Agenda:</strong> Introduction to AI in daily workflows; overview of templates and SOPs; hands‑on exercise using a Planner template; group discussion on AI opportunities; review and Q&amp;A.</p>
+          <h5>Intermediate Outline</h5>
+          <p><strong>Learning objectives:</strong> Deepen understanding of AI‑assisted documentation and data workflows; apply SOPs to create reproducible pipelines; explore advanced prompt engineering techniques.</p>
+          <p><strong>Agenda:</strong> Recap of beginner concepts; designing data folder structures and versioning strategies; advanced prompt engineering; hands‑on SOP drafting; peer review and feedback; wrap‑up and resources.</p>
+          <p>
+            <button class="btn btn-primary" onclick="downloadFile('training-outline-beginner.md')">Download Beginner Outline (MD)</button>
+            <button class="btn btn-primary" onclick="downloadFile('training-outline-intermediate.md')">Download Intermediate Outline (MD)</button>
+          </p>
+        </div>
+      </div>
+
+      <a href="#top" class="back-top">Back to top ↑</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>Hi, I’m ZA. I build and teach <strong>AI‑assisted workflow improvements</strong>—reducing friction in planning, documentation and repeatable execution. This portfolio shares reusable artifacts I’ve created independently (templates, SOPs and training outlines) designed to be practical, audit‑friendly and easy to adopt.</p>
+      <h3>Skills</h3>
+      <ul>
+        <li>Microsoft 365, Planner, SharePoint/OneDrive</li>
+        <li>Documentation quality control &amp; reproducibility</li>
+        <li>Governance‑minded AI use</li>
+      </ul>
+      <h3>Principles</h3>
+      <ul>
+        <li><strong>Privacy:</strong> Protect sensitive information and personal data.</li>
+        <li><strong>Clarity:</strong> Write clearly and structure work so others can understand.</li>
+        <li><strong>Repeatability:</strong> Document processes so they can be repeated and audited.</li>
+        <li><strong>Auditability:</strong> Maintain records and version history for accountability.</li>
+      </ul>
+      <div class="safe-box">
+        <p><strong>Disclaimer:</strong> All materials are generalized examples created independently and do not include confidential or employer‑owned content.</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>If you’d like to learn more about these artifacts, discuss custom training or request tailored templates, feel free to reach out.</p>
+      <div class="contact-form">
+        <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+        <p style="margin-top:1rem;">Prefer to schedule a call? <a href="#">Click here</a> (scheduling link placeholder).</p>
+        <p>Or email directly: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
       </div>
     </section>
   </main>
+
   <footer>
-    © 2025 ZA Portfolio. All materials are generalized examples created independently and do not include confidential or employer‑owned content.
+    <p>© 2025 ZA Portfolio.</p>
+    <p>All materials are generalized examples created independently and do not include confidential or employer‑owned content.</p>
   </footer>
+
+  <script>
+    // Store file contents for downloads
+    document.addEventListener('DOMContentLoaded', function() {
+      const files = {
+        'planner-workflow-template.md': `# Planner Workflow Template (Portfolio Version)
+
+> **Disclaimer:** This template is a generalized example created independently and does not include confidential or employer-owned content.  
+> **Safety note:** Do **not** include PHI/PII, secrets, unpublished results, internal identifiers, or proprietary methods in task titles/descriptions.
+
+## 1) Board Blueprint (Buckets)
+
+Use these buckets as your default lifecycle:
+
+1. **Intake / Backlog**
+2. **Ready**
+3. **In Progress**
+4. **Blocked**
+5. **Needs Review**
+6. **Done**
+7. **Archived (optional)**
+
+**Why this layout works:** It separates *what could be done* (Backlog) from *what should be done next* (Ready), makes blockers visible, and forces a review step before “Done.”
+
+---
+
+## 2) Label (Tag) System
+
+Use labels consistently. Suggested labels:
+
+- **Priority:** P1, P2, P3  
+- **Type:** Admin, Analysis, Build, Comms, Docs, Training, QC  
+- **Risk/Compliance:** Sensitive, External-facing, Requires approval  
+- **Scope:** Quick win, Medium, Multi-week  
+
+**Rule:** Use **1 Priority** + **1 Type** + optional Risk/Scope label.
+
+---
+
+## 3) Task Naming Convention
+
+**Format:**  
+\`[Workstream] — Verb + Object (Deliverable) | YYYY-MM-DD\`
+
+**Examples:**
+- \`Data SOP — Draft folder structure v1 | 2025-01-12\`
+- \`Training — Build beginner outline (AI safety) | 2025-01-18\`
+- \`Planner — Create handoff checklist v1 | 2025-01-08\`
+
+**Why:** Searchable + readable + forces a deliverable.
+
+---
+
+## 4) Task Description Template (Copy/Paste)
+
+Use this in the task description field:
+
+**Goal / Outcome:**  
+- What “done” looks like in one sentence.
+
+**Context (sanitized):**  
+- 2–3 lines max. Avoid sensitive details.
+
+**Inputs / Links:**  
+- [Link to folder/doc]  
+- [Link to reference]
+
+**Acceptance Criteria (Definition of Done):**
+- [ ] Deliverable created/updated
+- [ ] Review completed (who/when)
+- [ ] Version updated / changelog noted
+- [ ] Stored in correct location
+
+**Owner / RACI-lite:**
+- Responsible:
+- Accountable:
+- Consulted:
+- Informed:
+
+---
+
+## 5) Standard Checklist Items (Reusable)
+
+Add these checklist items to most tasks:
+
+- [ ] Define “done” (acceptance criteria)
+- [ ] Create/update documentation
+- [ ] QC/peer review completed
+- [ ] Stakeholders notified (if applicable)
+- [ ] File stored in correct folder
+- [ ] Next step created (if needed)
+
+---
+
+## 6) RACI-lite Roles (Simple)
+
+Use these defaults to keep it lightweight:
+
+- **Responsible (R):** Does the work
+- **Accountable (A):** Signs off / owns decision
+- **Consulted (C):** Provides input
+- **Informed (I):** Needs updates
+
+**Rule of thumb:** Every task should have **one A**.
+
+---
+
+## 7) Weekly Review Cadence (15–25 minutes)
+
+**Meeting cadence:** weekly (same day/time)
+
+**Agenda:**
+1. **Scan Blocked** (remove blockers, assign next actions)
+2. **Move Ready → In Progress** (confirm top 3 priorities)
+3. **Review Needs Review** (approve or request changes)
+4. **Confirm due dates** (next 7–10 days)
+5. **Create next steps** (avoid “dead ends”)
+
+**Outputs (end of meeting):**
+- Updated labels/status
+- Clear next owners
+- 1–3 tasks moved to Needs Review or Done
+- New tasks created for follow-ups
+
+---
+
+## 8) Handoff Checklist (Before moving to Done)
+
+- [ ] Deliverable finalized and saved in correct location
+- [ ] Filename follows naming rules
+- [ ] README / notes updated (if relevant)
+- [ ] Review complete + comments addressed
+- [ ] Dependencies updated (links, references, versions)
+- [ ] Stakeholders notified
+- [ ] Sensitive data check completed (no PHI/PII)
+
+---
+
+## 9) Example “Starter Set” Tasks (Create once per board)
+
+Create these tasks in **Intake/Backlog**:
+
+1. **Board Setup — Confirm buckets + label scheme**
+2. **Board Setup — Add naming convention + description template**
+3. **Board Setup — Create weekly review recurring task**
+4. **Board Setup — Create handoff checklist task**
+5. **Board Setup — Create RACI-lite roles reference**
+6. **Board Setup — Create “Definition of Done” standard**
+
+---
+
+## 10) Optional Automation Ideas (No-code friendly)
+
+- Use a recurring task: “Weekly Board Review” with checklist agenda.
+- If your environment supports automation:  
+  - When label **Blocked** is added → notify owner + add “Blocker note” checklist item.  
+  - When moved to **Needs Review** → assign reviewer + add due date (48–72 hrs).  
+  - When moved to **Done** → auto-add “Archive” task for end-of-month cleanup.
+`,
+        'planner-task-pack.csv': `Bucket,Title,Labels,Checklist,Notes
+"Intake / Backlog","Board Setup — Confirm buckets + label scheme","Type:Docs; Priority:P2","Define buckets;Define labels;Agree on priorities","Set defaults for the whole board."
+"Intake / Backlog","Board Setup — Add naming convention + description template","Type:Docs; Priority:P2","Add naming format;Add description template;Share with team","Copy/paste template into a pinned note doc."
+"Intake / Backlog","Board Setup — Create weekly review recurring task","Type:Admin; Priority:P1","Set meeting time;Add agenda checklist;Assign owner","Keep review short and consistent."
+"Intake / Backlog","Board Setup — Create handoff checklist task","Type:QC; Priority:P2","Draft checklist;Review;Publish","Use before moving tasks to Done."
+"Intake / Backlog","Board Setup — Create RACI-lite roles reference","Type:Docs; Priority:P3","Define R/A/C/I;Create examples;Share","Lightweight ownership clarity."
+`,
+        'planner-example-reproducible-pipeline.md': `# Example Planner Board: Reproducible Data Pipeline (Generic)
+
+**Goal:** Build a reproducible pipeline from raw data → processed outputs → report.
+
+## Buckets
+- Intake/Backlog
+- Ready
+- In Progress
+- Blocked
+- Needs Review
+- Done
+
+## Sample Tasks (titles)
+
+### Intake/Backlog
+- \`Pipeline — Define folder structure + README | 2025-01-05\`
+- \`Pipeline — Draft data dictionary template | 2025-01-06\`
+- \`Pipeline — Decide versioning strategy (semver vs date) | 2025-01-07\`
+- \`Pipeline — Define QC checklist v1 | 2025-01-08\`
+
+### Ready
+- \`Pipeline — Create project-root/ skeleton | 2025-01-09\`
+- \`Pipeline — Write README (how to run) | 2025-01-10\`
+
+### In Progress
+- \`Pipeline — Implement raw→processed script v1 | 2025-01-12\`
+- \`Pipeline — Add logging + seed control | 2025-01-13\`
+
+### Needs Review
+- \`Pipeline — Peer review: README + instructions | 2025-01-14\`
+- \`Pipeline — QC check: reproducibility run on clean env | 2025-01-15\`
+
+### Done
+- \`Pipeline — Publish v1 report + archive artifacts | 2025-01-16\`
+
+## Notes
+- Keep task descriptions sanitized.
+- Attach links to *generic* folders/docs (or placeholders) when publishing publicly.
+`,
+        'planner-example-training-rollout.md': `# Example Planner Board: AI Workflow Training Rollout (Generic)
+
+**Goal:** Deliver a beginner session + an intermediate workshop with reusable take-home resources.
+
+## Buckets
+- Intake/Backlog
+- Ready
+- In Progress
+- Blocked
+- Needs Review
+- Done
+
+## Sample Tasks (titles)
+
+### Intake/Backlog
+- \`Training — Define learning objectives (beginner) | 2025-02-01\`
+- \`Training — Define learning objectives (intermediate) | 2025-02-02\`
+- \`Training — Draft safe-use guardrails handout | 2025-02-03\`
+- \`Training — Build feedback form (5 questions) | 2025-02-04\`
+
+### Ready
+- \`Training — Create agenda + timing (beginner) | 2025-02-05\`
+- \`Training — Create hands-on exercise (prompting) | 2025-02-06\`
+
+### In Progress
+- \`Training — Draft slides/outline (beginner) | 2025-02-07\`
+- \`Training — Draft slides/outline (intermediate) | 2025-02-10\`
+
+### Needs Review
+- \`Training — Review: language clarity + safety framing | 2025-02-11\`
+- \`Training — Pilot run with 1–2 colleagues | 2025-02-12\`
+
+### Done
+- \`Training — Deliver session + publish sanitized take-home resources | 2025-02-15\`
+
+## Notes
+- Avoid employer-specific screenshots, system names or policies.
+- Keep examples generic and safe.
+`,
+        'copilot-prompt-library.md': `# Copilot Prompt Library (Portfolio)
+
+This placeholder file is part of the ZA portfolio. Replace this file with your own version of the Copilot Prompt Library.
+
+## Prompt Categories
+
+### Summarizing Documents
+1. “Summarize the key findings of this research paper in three bullet points.”
+2. “Provide a concise abstract of the following report, highlighting the goals, methods, results and conclusions.”
+3. “List the strengths and weaknesses identified in this study.”
+
+### Meeting Notes
+4. “Summarize the key decisions and action items from this meeting transcript.”
+5. “Identify open questions and follow‑up tasks from these meeting notes.”
+
+### Drafting SOPs
+6. “Create a draft Standard Operating Procedure for data backup based on these guidelines.”
+7. “Outline a set of steps to ensure reproducible analysis in a research workflow.”
+
+### Email Rewrites
+8. “Rewrite this email to be more concise and professional.”
+9. “Draft a polite reminder email to a colleague about an upcoming deadline.”
+
+### Risk/Issue Logs
+10. “List potential risks and mitigation strategies for this project.”
+11. “Create an issue log entry summarizing a data quality problem and proposing a resolution.”
+
+### Study Trackers
+12. “Generate a progress update template for a longitudinal study.”
+13. “Draft a study tracker that records milestones, dates and responsible parties.”
+
+### Training Content
+14. “Outline a beginner‑level training session on using AI in documentation workflows.”
+15. “Create an agenda for an intermediate workshop on AI‑assisted data analysis.”
+
+## Guardrails
+
+- Do not paste personal health information (PHI) or personally identifiable information (PII) into AI prompts.
+- Do not include secrets, unpublished results or internal identifiers.
+- Remove or anonymize confidential information before use.
+
+## Red Flag Checklist
+
+- Does the text include names or IDs? Remove or anonymize them.
+- Does it contain unpublished data or confidential methods? Omit or generalize.
+- Are there internal project codes or identifiers? Replace them with placeholders.
+
+## Sanitize‑First Steps
+
+1. Skim the source material and redact sensitive information.
+2. Summarize or paraphrase details instead of copying verbatim.
+3. Confirm that the prompt does not expose confidential data before sending it to an AI assistant.
+`,
+        'sop-data-organization.md': `# SOP for Data Organization & Reproducible Pipelines (Portfolio)
+
+This placeholder file is part of the ZA portfolio. Replace this file with your own version of the SOP.
+
+## Folder Structure
+
+    project-root/
+        data/
+            raw/
+            processed/
+        scripts/
+        notebooks/
+        reports/
+        figures/
+        metadata/
+            data_dictionary.csv
+            readme.md
+
+## Naming Rules
+
+- Use lowercase letters and hyphens (\`-\`) to separate words.
+- Prefix files with dates in \`YYYYMMDD\` format when order matters.
+- Avoid spaces and special characters.
+
+## Versioning
+
+- Use semantic versioning (e.g., \`v1.0.0\`) or date‑based versions (e.g., \`20251215\`) for scripts and documentation.
+- Maintain a \`CHANGELOG.md\` that records changes, dates and authors.
+
+## README Template
+
+Include:
+
+- Project overview and objectives
+- Data sources and collection methods
+- Instructions for running analyses
+- Dependencies and environment setup
+- Contact information
+
+## Data Dictionary Template
+
+| Field Name | Description | Type | Notes |
+|-----------|-------------|------|-------|
+| subject_id | Unique identifier for each subject | string | de‑identified |
+| age       | Age of the subject in years | integer | rounded |
+| group     | Study group assignment | string | control/test |
+
+## Change Log
+
+Record all changes to scripts, data transformations and documentation.
+
+## QC Checklist
+
+- Verify file naming conventions.
+- Check folder structure integrity.
+- Ensure reproducibility by running scripts end to end.
+- Validate that data files are de‑identified and anonymized.
+
+## Minimal Reproducibility Requirements
+
+- Document software versions and dependencies.
+- Set random seeds for analyses.
+- Provide instructions for reproducing results on a clean environment.
+
+## Example Tree
+
+Provide an example directory tree as shown above to illustrate where files belong.
+`,
+        'training-outline-beginner.md': `# Beginner Training Outline (Portfolio)
+
+This placeholder file is part of the ZA portfolio. Replace this file with your own training outline.
+
+## Learning Objectives
+
+- Understand the basics of AI‑assisted workflows.
+- Learn how to use templates and prompts responsibly.
+- Practice creating reproducible documentation.
+
+## Agenda
+
+1. Introduction to AI in daily workflows (10 min)
+2. Overview of templates and SOPs (15 min)
+3. Hands‑on exercise: Using a Planner template (30 min)
+4. Group discussion: Identifying opportunities for AI assistance (15 min)
+5. Review and Q&A (10 min)
+
+## Exercises
+
+- Create a simple Planner board using the provided template.
+- Write a concise summary of a sample document using the prompt library.
+
+## Assessment
+
+- Short quiz on safe prompt usage and data privacy.
+- Participant demonstrations of using the template and prompt.
+
+## Take‑Home Resources
+
+- Links to templates and prompt library.
+- Recommended articles on AI ethics and reproducibility.
+`,
+        'training-outline-intermediate.md': `# Intermediate Training Outline (Portfolio)
+
+This placeholder file is part of the ZA portfolio. Replace this file with your own training outline.
+
+## Learning Objectives
+
+- Deepen understanding of AI‑assisted documentation and data workflows.
+- Apply SOPs to create reproducible pipelines.
+- Explore advanced prompt engineering techniques.
+
+## Agenda
+
+1. Recap of beginner concepts (5 min)
+2. Designing data folder structures and versioning strategies (20 min)
+3. Advanced prompt engineering: customizing prompts for different contexts (30 min)
+4. Hands‑on exercise: Drafting an SOP for a study pipeline (25 min)
+5. Peer review and feedback session (20 min)
+6. Wrap‑up and resources (5 min)
+
+## Exercises
+
+- Construct a folder hierarchy for a mock research project.
+- Create a tailored prompt for summarizing meeting notes while maintaining confidentiality.
+
+## Assessment
+
+- Participants submit a short SOP draft that follows the provided structure.
+- Group critique of prompt engineering exercise.
+
+## Take‑Home Resources
+
+- Folder structure templates.
+- Sample prompts and guardrails.
+- Suggested readings on reproducible research.
+`
+      };
+
+      window.downloadFile = function(filename) {
+        const content = files[filename];
+        if (!content) return;
+        // choose MIME type based on extension
+        let type = 'text/plain';
+        if (filename.endsWith('.csv')) type = 'text/csv';
+        else if (filename.endsWith('.md')) type = 'text/markdown';
+        const blob = new Blob([content], { type: type });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+
+      window.toggleDetails = function(id) {
+        const details = document.getElementById(id);
+        const isHidden = details.classList.contains('hidden');
+        details.classList.toggle('hidden');
+        const btn = document.querySelector('button[data-target=\"' + id + '\"]');
+        if (btn) {
+          btn.setAttribute('aria-expanded', isHidden);
+          btn.textContent = isHidden ? 'Hide details' : 'Show details';
+        }
+      };
+    });
+  </script>
 </body>
 </html>
