@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOP for Data Organization | ZA Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">ZA Portfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="artifacts.html">Artifacts</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>SOP for Data Organization &amp; Reproducible Pipelines</h1>
+    <p><strong>What it is:</strong> A Standard Operating Procedure for organizing project data and building reproducible analysis pipelines. It lays out folder structures, naming rules, versioning practices, and templates to keep your work tidy and repeatable.</p>
+    <p><strong>Who it’s for:</strong> Data managers, researchers, analysts, and anyone responsible for maintaining datasets and workflows.</p>
+
+    <h2>Problems it solves</h2>
+    <ul>
+      <li>Disorganized folders and inconsistent naming conventions.</li>
+      <li>Difficulty recreating results due to missing documentation.</li>
+      <li>Version confusion when multiple copies of scripts and data exist.</li>
+    </ul>
+
+    <h2>What’s included</h2>
+    <ul>
+      <li><strong>Recommended folder structure:</strong> A clear hierarchy separating raw and processed data, scripts, reports, figures, and metadata.</li>
+      <li><strong>Naming rules:</strong> Guidelines for file and folder names (lowercase, hyphens, date prefixes).</li>
+      <li><strong>Versioning:</strong> Advice on semantic versioning or date‑based versioning and maintaining a change log.</li>
+      <li><strong>README template:</strong> Outline for documenting your project’s objectives, data sources, dependencies, and execution instructions.</li>
+      <li><strong>Data dictionary template:</strong> A table for defining fields, descriptions, types, and notes.</li>
+      <li><strong>Change log:</strong> Template to record modifications to data, scripts, and documentation.</li>
+      <li><strong>QC checklist:</strong> Steps to verify file naming, folder integrity, anonymization, and reproducibility.</li>
+      <li><strong>Minimal reproducibility requirements:</strong> Guidance on documenting environments, seeds, and dependencies.</li>
+      <li><strong>Example tree:</strong> A sample directory tree illustrating where files belong.</li>
+    </ul>
+
+    <h2>How to use</h2>
+    <ol>
+      <li>Create a new project directory using the recommended folder structure.</li>
+      <li>Name your files according to the naming rules to maintain clarity and ordering.</li>
+      <li>Store raw data separately from processed data and avoid editing raw files.</li>
+      <li>Document your project in the README template and fill out the data dictionary.</li>
+      <li>Record changes in the change log whenever you modify scripts or datasets.</li>
+      <li>Use the QC checklist regularly to ensure your project remains organized and reproducible.</li>
+    </ol>
+
+    <div class="safe-box">
+      <strong>Safety &amp; Responsible Use:</strong> Remove or anonymize personally identifiable information before storing data in shared locations. Adhere to your institution’s data policies and never commit confidential data to public repositories.
+    </div>
+
+    <h2>Preview (sanitized excerpt)</h2>
+    <pre style="background-color: var(--safe-box-background); padding:1rem; border:1px solid var(--border-color); overflow-x:auto;">
+project-root/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── scripts/
+├── notebooks/
+├── reports/
+├── figures/
+└── metadata/
+    ├── data_dictionary.csv
+    └── readme.md
+    </pre>
+    <p>This example tree demonstrates the clear separation of raw and processed data, code, reports, and metadata.</p>
+
+    <p>
+      <a href="downloads/sop-data-organization.md" class="btn" download>Download SOP (MD)</a>
+      <a href="contact.html" class="btn btn-primary">Request Customization</a>
+    </p>
+  </main>
+  <footer>
+    © 2025 ZA Portfolio. All materials are generalized examples created independently and do not include confidential or employer‑owned content.
+  </footer>
+</body>
+</html>
